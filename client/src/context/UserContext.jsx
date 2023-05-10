@@ -1,7 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-// Fetch
-import client from '../utils/axios/client';
 // Context
 export const UserContext = React.createContext();
 

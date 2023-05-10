@@ -1,7 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-// Data
-import AchievementsDB from './../db/achievements.json';
 
 export const GameContext = React.createContext();
 

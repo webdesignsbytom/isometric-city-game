@@ -10,10 +10,8 @@ import './styles/index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-  <UserContextProvider>
-    <App />
-  </UserContextProvider>
-</BrowserRouter>
+    <UserContextProvider>
+      <App />
+    </UserContextProvider>
+  </BrowserRouter>
 );
-
-
