@@ -10,17 +10,13 @@ function GameCanvasContainer() {
     y: 40,
     x: 40,
   });
-  const [startingTilePosition, setStartingTilePosition] = useState({
-    xpos: 10,
-    ypos: 10,
-  });
+
 
   const [tileArray, setTileArray] = useState([]);
   const [totalUnlockedTiles, setTotalUnlockedTiles] = useState(0);
   const [tileIdNumber, setTileIdNumber] = useState(1);
 
   console.log('totalUnlockedTiles', totalUnlockedTiles);
-  console.log('startingTilePosition', startingTilePosition);
   console.log('tileArray', tileArray);
 
   const useScript = () => {
@@ -30,7 +26,6 @@ function GameCanvasContainer() {
       const canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
       const container = document.querySelector('#game-container');
-      // canvas.style = "position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin: auto; border:2px solid blue";
       container.appendChild(canvas);
 
       // Set size of canvas based on it parent
@@ -41,6 +36,14 @@ function GameCanvasContainer() {
       // Draw canvas
       context.fillStyle = canvasBgColour;
       context.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // context.scale(1, 0.5);
+      // context.rotate((45 * Math.PI) / 180);
+
+      const startingTilePosition = {
+        xpos: 0,
+        ypos: 0,
+      };
 
       // Mouse size
       let mouse = {
@@ -62,18 +65,27 @@ function GameCanvasContainer() {
       });
 
       class Tile {
-        constructor(id, xpos, ypos, xsize, ysize) {
+        constructor(id, xpos, ypos, xsize, ysize, colour) {
           this.id = id;
           this.xpos = xpos;
           this.ypos = ypos;
           this.xsize = xsize;
           this.ysize = ysize;
+          this.colour = colour;
         }
 
         draw(context) {
           context.beginPath();
+          context.fillStyle = this.colour;
+          context.fillRect(this.xpos, this.ypos, this.xsize, this.ysize);
+          context.fillStyle = this.colour;
           context.strokeRect(this.xpos, this.ypos, this.xsize, this.ysize);
           context.stroke();
+        }
+
+        update() {
+          this.colour = 'red';
+          this.draw(context);
         }
       }
 
@@ -81,20 +93,27 @@ function GameCanvasContainer() {
 
       function createTileArray(context) {
         console.log('createTileArray');
-        let dx = 0;
-        let dy = 0;
+        let dx = startingTilePosition.xpos;
+        let dy = startingTilePosition.ypos;
         let id = tileIdNumber;
 
         for (var y = 0; y < startingTileNumber.y; y++) {
           for (var x = 0; x < startingTileNumber.x; x++) {
-            const newTile = new Tile(id, dx, dy, tileSize.x, tileSize.y);
-            dy += 20;
+            const newTile = new Tile(
+              id,
+              dx,
+              dy,
+              tileSize.x,
+              tileSize.y,
+              'white'
+            );
+            dy += 40;
             id++;
             newTile.draw(context);
             tiles.push(newTile);
           }
           dy = 0;
-          dx += 20;
+          dx += 40;
         }
 
         setTileArray(tiles);
@@ -109,51 +128,24 @@ function GameCanvasContainer() {
         console.log('mouse.x', x);
         console.log('mouse.y', y);
 
-        tiles.forEach(function (tile) {
-          if ((x < (tile.xpos + 20) && x >= tile.xpos) && (y < (tile.ypos + 20) && y >= tile.ypos)) {
-            console.log('PAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAP', tile);
-            return;
+        tiles.forEach(function (tile, index) {
+          if (
+            x < tile.xpos + 40 &&
+            x >= tile.xpos &&
+            y < tile.ypos + 40 &&
+            y >= tile.ypos
+          ) {
+            tile.update();
+            console.log('rect', rect);
           }
         });
       });
-      //   var x = e.pageX - canvas.offsetLeft;
-      //   var y = e.pageY - canvas.offsetTop;
-
-      //   enemySwarmArray.forEach(function (algae) {
-      //     if (
-      //       Math.pow(x - algae.xpos, 2) + Math.pow(y - algae.ypos, 2) <
-      //       Math.pow(algae.radius, 4)
-      //     ) {
-      //       console.log('PPP');
-      //       algae.clicked();
-      //     }
-      //   });
-      // });
 
       function run(context) {
         createTileArray(context);
       }
 
       run(context);
-
-      // function renderMap(context) {
-      //   var dx = 0,
-      //     dy = 0;
-      //   context.save();
-
-      //   context.scale(1, 0.5);
-      //   context.rotate((45 * Math.PI) / 180);
-
-      //   for (var y = 0; y < startingTileNumber.y; y++) {
-      //     for (var x = 0; x < startingTileNumber.x; x++) {
-      //       context.strokeRect(dx, dy, 40, 40);
-      //       dx += 40;
-      //     }
-      //     dx = 0;
-      //     dy += 40;
-      //   }
-      // }
-      // renderMap(context);
     }, []);
   };
 
