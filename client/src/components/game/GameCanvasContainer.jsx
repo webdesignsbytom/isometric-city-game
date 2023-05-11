@@ -7,18 +7,21 @@ function GameCanvasContainer() {
     x: 10,
   });
   const [tileSize, setTileSize] = useState({
-    y: 20,
-    x: 20,
+    y: 40,
+    x: 40,
   });
   const [startingTilePosition, setStartingTilePosition] = useState({
     xpos: 10,
     ypos: 10,
   });
+
+  const [tileArray, setTileArray] = useState([]);
   const [totalUnlockedTiles, setTotalUnlockedTiles] = useState(0);
   const [tileIdNumber, setTileIdNumber] = useState(1);
 
   console.log('totalUnlockedTiles', totalUnlockedTiles);
   console.log('startingTilePosition', startingTilePosition);
+  console.log('tileArray', tileArray);
 
   const useScript = () => {
     useEffect(() => {
@@ -74,6 +77,8 @@ function GameCanvasContainer() {
         }
       }
 
+      let tiles = [];
+
       function createTileArray(context) {
         console.log('createTileArray');
         let dx = 0;
@@ -86,12 +91,44 @@ function GameCanvasContainer() {
             dy += 20;
             id++;
             newTile.draw(context);
+            tiles.push(newTile);
           }
-          id++;
           dy = 0;
           dx += 20;
         }
+
+        setTileArray(tiles);
       }
+
+      canvas.addEventListener('click', (e) => {
+        console.log('tileArr', tiles);
+
+        var x = e.pageX - canvas.offsetLeft;
+        var y = e.pageY - canvas.offsetTop;
+
+        console.log('mouse.x', x);
+        console.log('mouse.y', y);
+
+        tiles.forEach(function (tile) {
+          if ((x < (tile.xpos + 20) && x >= tile.xpos) && (y < (tile.ypos + 20) && y >= tile.ypos)) {
+            console.log('PAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAPAP', tile);
+            return;
+          }
+        });
+      });
+      //   var x = e.pageX - canvas.offsetLeft;
+      //   var y = e.pageY - canvas.offsetTop;
+
+      //   enemySwarmArray.forEach(function (algae) {
+      //     if (
+      //       Math.pow(x - algae.xpos, 2) + Math.pow(y - algae.ypos, 2) <
+      //       Math.pow(algae.radius, 4)
+      //     ) {
+      //       console.log('PPP');
+      //       algae.clicked();
+      //     }
+      //   });
+      // });
 
       function run(context) {
         createTileArray(context);
