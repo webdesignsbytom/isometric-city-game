@@ -1,6 +1,8 @@
 # isometric-city-game
 
 Isometric layout grid and city building game 
+This repo include serveral examples i found of games or isometric grid.
+This helped me figure out how to select the squares at an angle.
 
 Current Address [Live Isometric City Game Link](https://rococo-kleicha-53fa88.netlify.app/)
 

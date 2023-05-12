@@ -16,6 +16,11 @@
   text-decoration: none;
 }
 
+canvas {
+  display: block;
+  position: absolute;
+}
+
 body {
   line-height: 1.5;
   min-height: 100vh;
