@@ -12,17 +12,25 @@
     />
     <link rel="stylesheet" href="./css/items.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/buildings.css" />
+    <link rel="stylesheet" href="./css/user.css" />
     <script src="./js/main.js"></script>
     <title>Isometric map builder</title>
   </head>
   <body>
     <section id="view">
-      <section id="topBar">
-        <div>
-          Logo
-        </div>
-        <nav>
-          <ul>
+      <!-- Header and nav -->
+      <header id="topBar">
+        <div><span>⚗</span></div>
+        <section class="userIncomeContainer">
+          <div id="goldContainer">Gold:</div>
+          <div id="productionContainer">Production:</div>
+          <div id="foodContainer">Food:</div>
+          <div id="gemsContainer">Gems:</div>
+        </section>
+        <!-- Login Nav Bar -->
+        <nav id="noUserNav">
+          <ul id="noUserNav2">
             <li>
               <a href="./login.html">Login</a>
             </li>
@@ -31,9 +39,100 @@
             </li>
           </ul>
         </nav>
-      </section>
+      </header>
+
+      <!-- Main grid container -->
       <div id="grid"></div>
-      <section id="bottomBar"></section>
+
+      <!-- Bottom menu bar -->
+      <section id="bottomBar">
+        <div id="buildingsMenu">
+          <ul class="buildingUlList">
+            <li>
+              <span onclick="openBuildingsMenu()" class="main-icon">⛪</span>
+            </li>
+            <li>
+              <span onclick="openBuildingsMenu()" class="main-icon">🐓</span>
+            </li>
+            <li>
+              <span onclick="openBuildingsMenu()" class="main-icon">🏹</span>
+            </li>
+            <li>
+              <span onclick="openBuildingsMenu()" class="main-icon">🌟</span>
+            </li>
+            <li>
+              <span onclick="openBuildingsMenu()" class="main-icon">🗺</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </section>
+
+    <!-- Buildig menu container -->
+    <!-- Usually hidden -->
+    <section id="buildingMenuContainer">
+      <div class="buildingsMenuTopBar">
+        <div>
+          <h3>Building menu</h3>
+        </div>
+        <div>
+          <span>All</span>
+          <span>Special</span>
+          <span>War</span>
+        </div>
+        <div id="closeBuildingIcon" onclick="closeBuildingsMenu()">
+          <span>X</span>
+        </div>
+      </div>
+      <div class="buildingsListContainer">
+        <div onclick="moveMenuLeft()" id="leftArrow"><span><=</span></div>
+        <div onclick="moveMenuRight()" id="rightArrow">=></div>
+
+        <ul class="buildingsListContainerUl">
+          <li>
+            <div class="building bld1 l"></div>
+          </li>
+          <li>
+            <div class="building bld2 l"></div>
+          </li>
+          <li>
+            <div class="building bld3 l"></div>
+          </li>
+          <li>
+            <div class="building bld4 l"></div>
+          </li>
+          <li>
+            <div class="building bld5 l"></div>
+          </li>
+          <li>
+            <div class="building bld8 l"></div>
+          </li>
+          <li>
+            <div class="building bld7 l"></div>
+          </li>
+          <li>
+            <div class="building bld6 l"></div>
+          </li>
+          <li>
+            <div class="building bld9 l"></div>
+          </li>
+          <li>
+            <div class="building bld10 l"></div>
+          </li>
+          <li>
+            <div class="building bld12 l"></div>
+          </li>
+          <li>
+            <div class="building bld11 l"></div>
+          </li>
+          <li>
+            <div class="building bld13 l"></div>
+          </li>
+          <li>
+            <div class="building bld14 l"></div>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <div class="items-list-wrap">
@@ -81,22 +180,10 @@
         <div class="item home2 m"></div>
         <div class="item home3 m"></div>
         <div class="item cafe1 m"></div>
-        <div class="item bld1 l"></div>
-        <div class="item bld2 l"></div>
-        <div class="item bld3 l"></div>
-        <div class="item bld4 l"></div>
-        <div class="item bld5 l"></div>
-        <div class="item bld6 l"></div>
-        <div class="item bld7 l"></div>
-        <div class="item bld8 l"></div>
-        <div class="item bld9 l"></div>
-        <div class="item bld10 l"></div>
-        <div class="item bld11 l"></div>
-        <div class="item bld12 l"></div>
-        <div class="item bld13 l"></div>
-        <div class="item bld14 l"></div>
       </div>
     </div>
     <i class="fas fa-times close-list"></i>
+
+    <script src="./js/user.js"></script>
   </body>
 </html>

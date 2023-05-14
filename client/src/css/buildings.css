@@ -1,0 +1,94 @@
+#buildingsMenu {
+  padding-left: 1rem;
+  height: 100%;
+}
+
+.main-icon {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+#buildingMenuContainer {
+  visibility: hidden;
+  position: absolute;
+  z-index: 20;
+  height: 25%;
+  bottom: 0;
+  width: 100%;
+  border-top: black 2px solid;
+  background-color: #6e0a1e;
+}
+
+#closeBuildingIcon {
+  cursor: pointer;
+}
+
+.buildingsMenuTopBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 6px;
+  border-bottom: 2px solid black;
+}
+
+.buildingsListContainer {
+  position: relative;
+  z-index: 20;
+  background-color: 'red';
+  height: 100%;
+}
+
+.buildingsListContainerUl {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-auto-flow: column;
+  overflow-x: scroll;
+}
+
+.buildingsListContainerUl li {
+  display: grid;
+  width: 100px;
+  height: 100px;
+  padding: 10;
+}
+
+#leftArrow {
+  position: absolute;
+  padding: 0 10px;
+  display: grid;
+  left: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+#rightArrow {
+  position: absolute;
+  padding: 0 10px;
+  display: grid;
+  right: 0;
+  height: 90%;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.building {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+}
+
+.buildingUlList {
+    display: flex;
+    gap: 8px;
+    height: 100%;
+    align-items: center;
+}

@@ -1,0 +1,7 @@
+.userIncomeContainer {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
