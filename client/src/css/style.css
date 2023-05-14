@@ -1,0 +1,232 @@
+body{
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    font-family: Tahoma;
+}
+
+section#view {
+    position: relative;
+    height: 100vh;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.desc {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100%;
+    display: block;
+    color: #555;
+    font-size: 15px;
+}
+
+.random-fill {
+    background-color: transparent;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 0 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.desc p{
+    margin: 5px;
+}
+
+.desc span{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    transform: rotateX(55deg) rotateY(0) rotateZ(-45deg);
+    position: absolute;
+    z-index: 1;
+}
+
+.add-grid {
+    position: absolute;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #bdbab9;
+    color: #bdbab9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add-grid:hover {
+    background-color: #e7bd63;
+    border: 1px solid #000;
+    color: #000;
+}
+
+.add-row-top {
+    top: -120px;
+    left: calc(50% - 20px);
+}
+.add-row-bottom {
+    bottom: -100px;
+    left: calc(50% - 20px);
+}
+.add-column-left {
+    left: -100px;
+    bottom: calc(50% - 20px);
+}
+.add-column-right {
+    right: -120px;
+    bottom: calc(50% - 20px);
+}
+
+.cell {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #bdbab9;
+    transition: .1s;
+    cursor: pointer;
+    position: relative;
+}
+
+.cell:hover, .cell-active {
+    background-color: #e7bd63;
+    border: 1px solid #000;
+}
+
+.cell .item {
+    transform: rotateX(-45deg) rotateY(35deg) rotateZ(60deg);
+    width: 120px;
+    position: absolute;
+    top: -161px;
+    left: -61px;
+    height: 210px;
+    pointer-events: none;
+    transform-origin: bottom center;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 120px;
+    transition: .15s;
+}
+
+.item-hover {
+    transform: rotateX(-45deg) rotateY(35deg) rotateZ(60deg) scale(1.2) translateY(-10px) !important;
+    z-index: 9999 !important;
+}
+
+.items-history {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 0 10px;
+    background-color: #fff;
+    z-index: 999999;
+
+}
+
+.item-history-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 24px;
+    border-bottom: 1px dashed #aaa;
+    padding: 5px 0 2px;
+}
+
+.item-history-row .item{
+    height: 25px;
+    width: 40px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: default;
+}
+
+
+
+.item-history-row p{
+    margin: 0;
+}
+
+.item-history-row i{
+    color: #555;
+    cursor: pointer;
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+.items-list-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    transform: translateX(300px);
+    transition: .2s;
+    z-index: 999999;
+    overflow-y: scroll;
+    overflow-x: auto;
+
+}
+
+.items-list {
+    padding: 10px 10px 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100px;
+    grid-gap: 10px;
+    background-color: #fff;
+
+}
+
+.items-list-wrap.items-list-active {
+    transform: translateX(0) !important;
+}
+
+.items-list .item {
+    height: 100%;
+    min-height: 100px;
+    display: flex;
+    align-items: flex-end;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+
+.items-list .item:hover {
+    border: 1px dashed #aaa;
+}
+
+.close-list {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #555;
+    transform: translate(35px);
+    transition: .2s;
+}
+
+.close-list-active {
+    transform: translate(-250px)
+}
