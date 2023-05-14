@@ -1,3 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
 body{
     margin: 0;
     overflow: hidden;
@@ -8,6 +16,33 @@ body{
 section#view {
     position: relative;
     height: 100vh;
+}
+
+#topBar {
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    top: 0;
+    background-color: #6E0A1E;
+    padding: 1px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: whitesmoke;
+    align-items: center;
+    height: 100%;
+}
+
+#bottomBar {
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    bottom: 0;
+    background-color: #6E0A1E;
 }
 
 .container {

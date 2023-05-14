@@ -14,6 +14,7 @@ Current Address [Live Isometric City Game Link](https://rococo-kleicha-53fa88.ne
   - [Game play](#game-play)
   - [Technologies](#technologies)
   - [Run this project locally](#run-this-project-locally)
+  - [Example Project](#example-project)
 
 
 ## General info
@@ -45,3 +46,6 @@ Backend: Express, Prisma, JavaScript
 3. `npm ci`
 4. `npm start`
 
+## Example Project
+
+<img src='./assets/images/example1.png' alt='Example page' style='width: 300px; height: 160px;' />
