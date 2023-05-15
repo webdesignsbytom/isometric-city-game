@@ -227,7 +227,6 @@ nav ul {
     grid-template-rows: 100px;
     grid-gap: 10px;
     background-color: #fff;
-
 }
 
 .items-list-wrap.items-list-active {

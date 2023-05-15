@@ -10,9 +10,7 @@
       integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./css/items.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/menus.css" />
+    <link rel="stylesheet" href="./css/practice.css" />
     <link rel="stylesheet" href="./css/user.css" />
     <script src="./js/main.js"></script>
     <title>Isometric map builder</title>
@@ -47,7 +45,7 @@
       <!-- Bottom menu bar -->
       <section id="bottomBar">
         <div id="menuNavContainer">
-          <ul class="menuList">
+          <ul id="menuNavList">
             <li>
               <span onclick="openBuildingsMenu()" class="menuIcon">⛪</span>
             </li>
@@ -70,10 +68,10 @@
 
     <!-- Buildig menu container -->
     <!-- Usually hidden -->
-    <section id="buildingMenuContainer">
-      <div class="buildingsMenuTopBar">
+    <section id="productMenuContainer">
+      <article id="productMenuTopBar">
         <div>
-          <h3>Building menu</h3>
+          <h3>Menu</h3>
         </div>
         <div>
           <span>All</span>
@@ -83,56 +81,57 @@
         <div id="closeMenuIcon" onclick="closeMenu()">
           <span>X</span>
         </div>
-      </div>
-      <div class="menuListContainer">
+      </article>
+
+      <section class="menuListContainer">
         <div onclick="moveMenuLeft()" id="leftArrow"><span><=</span></div>
         <div onclick="moveMenuRight()" id="rightArrow">=></div>
 
         <ul class="menuListItems">
-          <li>
-            <div class="building item bld1 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld2 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld3 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld4 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld5 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld8 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld7 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld6 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld9 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld10 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld12 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld11 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld13 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
-          <li>
-            <div class="building item bld14 l"></div>
+          <li class="product">
+            <div class="building l"></div>
           </li>
         </ul>
-      </div>
+      </section>
     </section>
 
     <div class="items-list-wrap">

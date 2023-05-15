@@ -349,6 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // dom load
 });
 
+// Open build menu
 const openBuildingsMenu = () => {
     console.log('SS');
     let menu = document.querySelector('#buildingMenuContainer');
@@ -356,7 +357,8 @@ const openBuildingsMenu = () => {
     menu.style.visibility = 'visible'
 }
 
-const closeBuildingsMenu = () => {
+// Close any menu
+const closeMenu = () => {
     console.log('SS');
     let menu = document.querySelector('#buildingMenuContainer');
     console.log('menu', menu);

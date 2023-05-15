@@ -1,9 +1,10 @@
-#buildingsMenu {
+/* Bottom bar - always visible */
+#menuNavContainer {
   padding-left: 1rem;
   height: 100%;
 }
 
-.main-icon {
+.menuIcon {
   font-size: 26px;
   cursor: pointer;
 }
@@ -11,14 +12,22 @@
 #buildingMenuContainer {
   visibility: hidden;
   position: absolute;
+  display: grid;
   z-index: 20;
-  height: 25%;
   bottom: 0;
   width: 100%;
   border-top: black 2px solid;
   background-color: #6e0a1e;
 }
 
+.menuList {
+  display: flex;
+  gap: 8px;
+  height: 100%;
+  align-items: center;
+}
+
+/* Open menu options */
 #closeBuildingIcon {
   cursor: pointer;
 }
@@ -30,26 +39,26 @@
   border-bottom: 2px solid black;
 }
 
-.buildingsListContainer {
-  position: relative;
-  z-index: 20;
-  background-color: 'red';
-  height: 100%;
-}
 
-.buildingsListContainerUl {
-  display: grid;
-  height: 100%;
-  width: 100%;
-  grid-auto-flow: column;
+.menuListContainer {
+  position: absolute;
   overflow-x: scroll;
+  width: 100%;
+  display: grid;
+  height: auto;
 }
 
-.buildingsListContainerUl li {
+.menuListItems {
+  background-color: aqua;
   display: grid;
-  width: 100px;
-  height: 100px;
-  padding: 10;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+  margin: 0 22px;
+  height: 100%;
+}
+
+.item {
+  padding: 6 44;
 }
 
 #leftArrow {
@@ -86,9 +95,3 @@
   padding: 5px;
 }
 
-.buildingUlList {
-    display: flex;
-    gap: 8px;
-    height: 100%;
-    align-items: center;
-}
